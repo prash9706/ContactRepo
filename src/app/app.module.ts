@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { FooterComponent } from './footer/footer.component';
 import { ContactListComponent } from './contact-list/contact-list.component';
+import { ContactSearchComponent } from './contact-search/contact-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     FooterComponent,
-    ContactListComponent
+    ContactListComponent,
+    ContactSearchComponent
   ],
   imports: [
     BrowserModule,
