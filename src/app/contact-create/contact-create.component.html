@@ -1,1 +1,145 @@
-<p>contact-create works!</p>
+<form #addressForm="ngForm" class="container mt-3" (ngSubmit)="createContact()">
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <section class="container border mb-4 p-3">
+                <div class="row">
+                    <div class="col-4\">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="contact.firstName" name="firstName"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label>Middle Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="contact.middleName" name="middleName"/>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input type="text" class="form-control" [(ngModel)]="contact.lastName" name="lastName"/>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+    <!-- <app-address></app-address> -->
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <button type="button" class="btn btn-primary mb-2" (click)="addAddress()">Add Address</button>
+          <section class="container border mb-4 p-3" *ngFor="let address of contact.addresses; let i = index;">
+            <div class="row">
+              <div class="col-6">
+                  <h4>Address {{i + 1}}</h4>
+              </div>
+              <div class="col-6 text-right">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeAddress(i)">Remove</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-2">
+                  <div class="form-group">
+                      <label>Type</label>
+                      <input type="text" class="form-control" [(ngModel)]="address.type" name="address_{{i}}" placeholder="Home/Work"/>
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="form-group">
+                      <label>Street Address</label>
+                      <input type="text" class="form-control" [(ngModel)]="address.streetAddress" name="streetAddress_{{i}}" placeholder="McCallum Blvd"/>
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="form-group">
+                      <label>City</label>
+                      <input type="text" class="form-control" [(ngModel)]="address.city" name="city_{{i}}" placeholder="Mumbai"/>
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="form-group">
+                      <label>State</label>
+                      <input type="text" class="form-control" [(ngModel)]="address.State" name="State_{{i}}" placeholder="Texas"/>
+                  </div>
+              </div>
+              <div class="col-2">
+                  <div class="form-group">
+                      <label>Zip Code</label>
+                      <input type="number" class="form-control" [(ngModel)]="address.zipCode" name="zipCode_{{i}}" placeholder="Dallas"/>
+                  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    <!-- <app-phone></app-phone> -->
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <button type="button" class="btn btn-primary mb-2" (click)="addPhoneNumber()">Add Phone No.</button>
+          <section class="container border mb-4 p-3" *ngFor="let phoneNumber of contact.phoneNumbers; let i = index;">
+            <div class="row">
+              <div class="col-6">
+                  <h4>{{phoneNumber.type}} Phone </h4>
+              </div>
+              <div class="col-6 text-right">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removePhoneNumber(i)">Remove</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                  <div class="form-group">
+                      <label>Phone Type</label>
+                      <input type="text" class="form-control" [(ngModel)]="phoneNumber.type" name="type_{{i}}" placeholder="Home/Work"/>
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="form-group">
+                      <label>Area Code</label>
+                      <input type="number" class="form-control" [(ngModel)]="phoneNumber.areaCode" name="areaCode_{{i}}" placeholder="75252"/>
+                  </div>
+              </div>
+              <div class="col-4">
+                <div class="form-group">
+                    <label>Number</label>
+                    <input type="text" class="form-control" [(ngModel)]="phoneNumber.number" name="number_{{i}}" placeholder="Mumbai"/>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    <!-- <app-date></app-date> -->
+    <div class="row justify-content-center">
+        <div class="col-11">
+            <button type="button" class="btn btn-primary mb-2" (click)="addDateInstance()">Add Date</button>
+          <section class="container border mb-4 p-3" *ngFor="let date of contact.dates; let i = index;">
+            <div class="row">
+              <div class="col-6">
+                  <h4>{{date.type}} Date </h4>
+              </div>
+              <div class="col-6 text-right">
+                  <button type="button" class="btn btn-danger btn-sm" (click)="removeDateInstance(i)">Remove</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                  <div class="form-group">
+                      <label>Date Type</label>
+                      <input type="text" class="form-control" [(ngModel)]="date.type" name="dateType_{{i}}" placeholder="Birthday"/>
+                  </div>
+              </div>
+              <div class="col-4">
+                  <div class="form-group">
+                      <label>Date</label>
+                      <input type="date" class="form-control" [(ngModel)]="date.date" name="date_{{i}}"/>
+                  </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    <div class="text-right">
+        <input type="submit" class="btn btn-success" value="Submit"/>
+    </div>
+</form>

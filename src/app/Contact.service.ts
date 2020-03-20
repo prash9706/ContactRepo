@@ -13,4 +13,9 @@ getContacts(): Observable<Contact[]> {
   const mockContacts: Contact[] = Contacts;
   return of(mockContacts);
 }
+
+getContact(id: number): Observable<Contact> {
+  const foundContact = Contacts.filter(a => a.id === id);
+  return of(foundContact[0]);
+}
 }
